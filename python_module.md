@@ -1,4 +1,5 @@
-# python 常用模块
+# 国平学python之 常用模块
+- python 模块module 相当于java中类文件，但也不是完全相同。java中类 和文件名必须一样，python 则不用， java中所有的方法和属性必须写在 该类的大括号内， 建议一个类文件内只写一个类，但python 中，一个模块中可以有多个类，和多个与类同级多个方法。与其说像java中的类文件，不如说像java中的package ，但是package 又不是文件，所有python  兼有java中类文件和package的功能
 ## 如何自定义模块，并且调用定义模块
 ####  定义模块
 - 模块就是一个.py文件，模块名就是文件名。例如定义一个person 模块:
