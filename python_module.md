@@ -46,4 +46,39 @@
 - 22.os.path.getatime(path)               #返回path所指向的文件或者目录的最后存取时间
 - 23.os.path.getmtime(path)               #返回path所指向的文件或者目录的最后修改时间
 ## time和datetime模块
-- 1.time
+- 在Python中，通常有这几种方式来表示时间：
+- b时间戳
+- 格式化的时间字符串
+- 元组（struct_time）共九个元素。
+- 由于Python的time模块实现主要调用C库，所以各个平台可能有所不同。 
+- UTC（Coordinated Universal Time，世界协调时）亦即格林威治天文时间，世界标准时间。在中国为UTC+8。DST（Daylight Saving Time）即夏令时。  
+- 时间戳（timestamp）的方式：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类 - 型。返回时间戳方式的函数主要有time()，clock()等。 
+- 元组（struct_time）方式：struct_time元组共有9个元素，返回struct_time的函数主要有gmtime()，localtime()，strptime()。
+### time模块
+- time.time()  # 获取时间戳：当前时间减1970-1-1 00:00 ==> 秒
+-  time.localtime()  # 本地时间，元组方式（tm_isdst() 是否夏令时）
+- time.struct_time(tm_year=2016, tm_mon=8, tm_mday=29, tm_hour=0, tm_min=51, tm_sec=37, tm_wday=0, tm_yday=242, tm_isdst=0) 
+- help(time)  # 模块帮助
+- time.timezone  # 查看时区
+- -28800  # 28800/60秒/60分 = 8时 ==> utc --> 标准+8 
+- time.sleep()  # 时间睡几秒
+- time.gmtime()   # 不加时间戳，为国际标准时间
+- time.localtime()   # 不加时间戳，本地时间
+- 加上则从1970年开始算。
+### 时间转为时间戳
+- x = time.localtime()
+- time.struct_time(tm_year=2016, tm_mon=8, tm_mday=29, tm_hour=1, tm_min=0, tm_sec=8, tm_wday=0, tm_yday=242, tm_isdst=0)
+- time.mktime(x)  得到 1472403608.0 
+### 转化时间戳和元组到时间字符串
+- time.asctime(time.localtime())  # tuple -> string
+- 'Mon Aug 29 01:10:47 2016' 
+- time.ctime(888888888)  # seconds -> string
+- 'Tue Mar  3 09:34:48 1998' 
+### 时间加减
+- import datetime
+- datetime.datetime.now() # 返回 2016-08-19 12:47:03.941925
+- datetime.date.fromtimestamp(time.time())  # 时间戳直接转成日期格式 2016-08-19
+- datetime.datetime.now() + datetime.timedelta(3) # 当前时间+3天
+- datetime.datetime.now() + datetime.timedelta(-3) # 当前时间-3天
+- datetime.datetime.now() + datetime.timedelta(hours=3) # 当前时间+3小时
+- datetime.datetime.now() + datetime.timedelta(minutes=30) # 当前时间+30分
