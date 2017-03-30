@@ -1,4 +1,26 @@
 # python 常用模块
+## 如何自定义模块，并且调用定义模块
+####  定义模块
+- 模块就是一个.py文件，模块名就是文件名。例如定义一个person 模块:
+-  person.py (文件名)
+-  def eat(self):
+-    print("eat")
+-  class action():
+-    def walk():
+-        print("work")
+-    def run(self):
+-        print("run")
+-    def sing(self):
+-        print("sing")
+####  调用模块
+-   我们要知道python中，导入默认模块，只需要import 模块名，不需要指定路径。那是因为python 会去默认的路径找默认的模块。如果我们调用自己定义的模块，- -   我们就要给python 解释器加一个存放我们模块的路径，也就是告诉python ，去哪里找我们自定义的模块。他的语法是：
+-   sys.path.append('your module path')
+####  调用模块中的方法
+-    person.eat()
+#### 实例化模块中的类，调用类方法
+-   robin=person.aciton()
+-   robin.walk()
+-   robin.run()
 ## os模块
 - 1.os.getcwd()                           #获取python当前的工作路径
 - 2.ch=os.chdir("c:/windows")	            #改变当前工作路径到指定目录		
@@ -23,3 +45,5 @@
 - 21.os.path.join(path1[, path2[, ...]])  #将多个路径组合后返回，第一个绝对路径之前的参数将被忽略
 - 22.os.path.getatime(path)               #返回path所指向的文件或者目录的最后存取时间
 - 23.os.path.getmtime(path)               #返回path所指向的文件或者目录的最后修改时间
+## time和datetime模块
+- 1.time
