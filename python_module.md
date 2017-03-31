@@ -83,3 +83,20 @@
 - datetime.datetime.now() + datetime.timedelta(-3) # 当前时间-3天
 - datetime.datetime.now() + datetime.timedelta(hours=3) # 当前时间+3小时
 - datetime.datetime.now() + datetime.timedelta(minutes=30) # 当前时间+30分
+##  sys模块
+- sys.argv[index]       命令行参数list ，第一个元素是程序本身的路径
+- 在命令行执行python 文件时 可以带参数，这些参数可以在py文件里面使用，例如： 
+- 在命令行中 ： python firstproject.py  'parm1' 'param2' 'parm3'   #切记：参数用空格隔开
+- 然后在py文件里面 我们可以使用sys.argv[index] 接收这些参数
+- a=sys.argv[1]='parm1'    b=sys.argv[2]='param2'    c=sys.argv[3]='param3'
+- sys.exit()   退出程序
+- sys.path      返回模块的搜索路径  
+- sys.path.append('path')   增加 指定路径为 模块的搜索路径
+-  sys.platform 返回操作系统平台名称 
+## shutil模块 ：高级的文件，文件夹，拷贝，压缩包等处理模块
+- shutil.copy(src,dst)            拷贝src文文件 到指定的dst目录 如果目标位置存在 该文件会报 file is exists错误
+- shutil.move(src,dst)            剪切  src文件  到指定的dst目录 如果目标位置存在 该文件会报 file is exists错误
+- shutil.copytree(src,dst)        拷贝目录 ，用法与上面2个相似，不在赘述
+- shutil.rmtree('dst')            删除目录及该目录下所有子目录
+- shutil.make_archive('src',format)      把 指定文件压缩 成zip 或者 tar. src是源文件，format有zip 和tar 2中格式。默认创建到源文件路径。
+-
