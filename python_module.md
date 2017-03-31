@@ -99,4 +99,27 @@
 - shutil.copytree(src,dst)        拷贝目录 ，用法与上面2个相似，不在赘述
 - shutil.rmtree('dst')            删除目录及该目录下所有子目录
 - shutil.make_archive('src',format)      把 指定文件压缩 成zip 或者 tar. src是源文件，format有zip 和tar 2中格式。默认创建到源文件路径。
--
+- shutil.unpack_archive(filename, extract_dir=None, format=None)     解压指定文件
+## re 正则表达式模块
+### 常用正则表达式符号
+- '.'     默认匹配除\n之外的任意一个字符，若指定flag DOTALL,则匹配任意字符，包括换行
+- '^'     匹配字符开头，若指定flags MULTILINE,这种也可以匹配上(r"^a","\nabc\neee",flags=re.MULTILINE)
+- '$'     匹配字符结尾，或e.search("foo$","bfoo\nsdfsf",flags=re.MULTILINE).group()也可以
+- '*'     匹配*号前的字符0次或多次，re.findall("ab*","cabb3abcbbac")  结果为['abb', 'ab', 'a']
+- '+'     匹配前一个字符1次或多次，re.findall("ab+","ab+cd+abb+bba") 结果['ab', 'abb']
+- '?'     匹配前一个字符1次或0次
+- '{m}'   匹配前一个字符m次
+- '{n,m}' 匹配前一个字符n到m次，re.findall("ab{1,3}","abb abc abbcbbb") 结果'abb', 'ab', 'abb']
+- '|'     匹配|左或|右的字符，re.search("abc|ABC","ABCBabcCD").group() 结果'ABC'
+- '(...)' 分组匹配
+- '\A'    只从字符开头匹配，re.search("\Aabc","alexabc") 是匹配不到的
+- '\Z'    匹配字符结尾，同'$'
+- '\d'    匹配数字0-9
+- '\D'    匹配非数字
+- '\w'    匹配[A-Za-z0-9]
+- '\W'    匹配非[A-Za-z0-9]
+- '\s'    匹配空白字符、\t、\n、\r , re.search("\s+","ab\tc1\n3").group() 结果 '\t'
+### re 顶级方法
+- re.match('mode','str')   从头开始检测mode和str是否完全一样
+- re.search('mode','str')   检测str是否包含mode ，找到第一个就返回，也就是匹配一次
+- re.findall('mode','str')    检测str是否包含mode ，返回所有匹配到的元素，并存储到一个list里面。
