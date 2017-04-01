@@ -123,3 +123,11 @@
 - re.match('mode','str')   从头开始检测mode和str是否完全一样
 - re.search('mode','str')   检测str是否包含mode ，找到第一个就返回，也就是匹配一次
 - re.findall('mode','str')    检测str是否包含mode ，返回所有匹配到的元素，并存储到一个list里面。
+### Json module 
+-  As we all  konw ,Json now is the most widely-used format to transport the data .当然python 也支持对json的解析，下面是2个常用的方
+- 法 ，用于 json 和 python中数据的互相 解析
+#### json.dumps(json)
+  把json 解析成python中的 dict
+#### json.loads(dict)
+  把dict 转化为json 格式
+  
