@@ -23,3 +23,35 @@ Number又可分为<br>
 ## 4.turple(元组)
 ## 5.sets (集合)
 ## 6.Dictionary(字典)
+# python中面向对象的实现
+##  继承
+-  定义一个基本的类:
+-  class base_class():
+-      def __init__(self,args):              # __init__()是python中的构造函数 
+-           self.args=args
+-      def method_to_be_overrided():
+-           print("i will be overrided ,if  some class extend me")
+-  继承基本类
+-  class extend_class(base_class):           # 在后面的括号里面加上其他类的名称就可以了
+-      def __init__(self,arg):
+-           self.arg=arg
+-      def method_to_be_overrided():
+-            print("overrided);
+-  需要特别注意，python的派生类实例化对象时，并不会自动基类的构造方法。派生类对象会首先在本类查找init方法，如果找到就调用然后完成实例化，如果找不到，则会在基类中寻找init方法完成实例化。如果有多个基类，则会按照继承的顺序依次寻找init方法，这个后面还会讲到。
+### 多重继承
+- class base1():  
+-    def __init__(self):  
+-        print "base1 called";  
+-          
+- class base2():  
+-    def __init__(self):  
+-        print "base2 called";  
+-  
+- class derive1(base1,base2):  
+-    def __init__(self):  
+-        #base1.__init__(self);  
+-        #base2.__init__();  
+-        print "derive1 called";  
+-  
+- class derive2(base2,base1):  
+-    pass;  
